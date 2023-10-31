@@ -1,17 +1,12 @@
-/*
 const loginForm = document.querySelector("#login-form");
-// const loginForm = document.getElementById("login-form");
-const loginInput = loginForm.querySelector("input");
-const loginButton = loginForm.querySelector("button");
-*/
-
 const loginInput = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
+// const loginButton = document.querySelector("#login-form button");
 
-function onLoginBtnClick() {
-    const username = loginInput.value;
-    if(username === "") { alert("please write your name"); }
-    else if(username.length > 15) { alert("Your name is too long.");}
+
+// 첫번째 인자는 항상 브라우저에서 방금 벌어진 일에 대한 정보가 전달된다. JS 자체가 그런 거다.
+function onLoginSubmit(event) {
+    event.preventDefault(); //어떤 이벤트든 기본 행동 즉 폼 제출 후 새.고가 발생하지 않도록 막는 역할
+    console.log(loginInput.value);
 }
 
-loginButton.addEventListener("click", onLoginBtnClick);
+loginForm.addEventListener("submit", onLoginSubmit)
